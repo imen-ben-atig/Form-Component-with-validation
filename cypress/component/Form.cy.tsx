@@ -3,7 +3,7 @@ import Form from '@/components/Form';
 
 describe('Form Component', () => {
   beforeEach(() => {
-    mount(<Form />);  // Mount the form component
+    mount(<Form />);
   });
   it('should display the form with all fields', () => {
     cy.get('form').should('be.visible');
@@ -40,7 +40,6 @@ describe('Form Component', () => {
   });
 
   it('should show an error when the selected file is not an image', () => {
-    // Choose a non-image file (e.g., a txt file)
     const fileName = 'example.txt';
     cy.get('input[name="file"]').attachFile(fileName);
     cy.get('button[type="submit"]').click();
@@ -48,7 +47,6 @@ describe('Form Component', () => {
   });
 
   it('should show an error when the selected image file is too large', () => {
-    // Attach a file larger than 5MB
     const fileName = 'large-image.jpg';
     cy.get('input[name="file"]').attachFile({
       filePath: fileName,
@@ -59,8 +57,7 @@ describe('Form Component', () => {
   });
 
   it('should submit the form when all fields are valid', () => {
-    // Mock the form submission to test the form behavior
-    const validFile = 'valid-image.jpg'; // A valid image file
+    const validFile = 'valid-image.jpg';
 
     cy.get('input[name="name"]').type('John Doe');
     cy.get('input[name="age"]').type('30');
