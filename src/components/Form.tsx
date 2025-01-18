@@ -60,58 +60,75 @@ const Form: React.FC = () => {
       setSuccessMessage(null);
     }
   };
+ return (
+  <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center">
+    <form 
+      onSubmit={handleSubmit} 
+      className="bg-white p-8 rounded-lg shadow-xl w-full max-w-lg space-y-6"
+    >
+      <h2 className="text-2xl font-semibold text-center text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+        Create Your Account
+      </h2>
 
-  return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <form onSubmit={handleSubmit} className="bg-purple-600 p-8 rounded-lg shadow-xl w-full max-w-lg space-y-6">
-        <h2 className="text-2xl font-semibold text-center text-white">Create Your Account</h2>
-        
-        <div>
-          <label htmlFor="name" className="block text-sm font-medium text-white">Name</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleChange}
-            className="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-          />
-          {errors.name && <p className="text-sm text-red-500 mt-1">{errors.name}</p>}
-        </div>
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium text-purple-600">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
+        />
+        {errors.name && <p className="text-sm text-purple-500 mt-1">{errors.name}</p>}
+      </div>
 
-        <div>
-          <label htmlFor="age" className="block text-sm font-medium text-white">Age</label>
-          <input
-            type="number"
-            name="age"
-            id="age"
-            value={formData.age}
-            onChange={handleChange}
-            className="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-black"
-          />
-          {errors.age && <p className="text-sm text-red-500 mt-1">{errors.age}</p>}
-        </div>
+      <div>
+        <label htmlFor="age" className="block text-sm font-medium text-purple-600">
+          Age
+        </label>
+        <input
+          type="number"
+          name="age"
+          id="age"
+          value={formData.age}
+          onChange={handleChange}
+          className="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500 text-black"
+        />
+        {errors.age && <p className="text-sm text-purple-500 mt-1">{errors.age}</p>}
+      </div>
 
-        <div>
-          <label htmlFor="file" className="block text-sm font-medium text-white">Profile Picture</label>
-          <input
-            type="file"
-            name="file"
-            id="file"
-            onChange={handleChange}
-            className="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          {errors.file && <p className="text-sm text-red-500 mt-1">{errors.file}</p>}
-        </div>
-        {successMessage && (
-          <p className="text-green-500 mt-4 text-center font-bold">{successMessage}</p>
-        )}
-        <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-          Submit
-        </button>
-      </form>
-    </div>
-  );
+      <div>
+        <label htmlFor="file" className="block text-sm font-medium text-purple-600">
+          Profile Picture
+        </label>
+        <input
+          type="file"
+          name="file"
+          id="file"
+          onChange={handleChange}
+          className="mt-1 p-3 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-purple-500"
+        />
+        {errors.file && <p className="text-sm text-purple-500 mt-1">{errors.file}</p>}
+      </div>
+
+      {successMessage && (
+        <p className="text-green-500 mt-4 text-center font-bold">{successMessage}</p>
+      )}
+      
+      <button 
+        type="submit" 
+        className="w-full py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+      >
+        Submit
+      </button>
+    </form>
+  </div>
+);
+
+  
 };
 
 export default Form;
